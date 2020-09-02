@@ -1,18 +1,18 @@
 .calendar {
   display: flex;
   flex-wrap: wrap;
-  max-width: ($sizeOfCeil+$gapOfCeil)*7;
+  max-width: ($cellSize + $cellGap) * $daysCount;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
   & > div {
-    height: $sizeOfCeil;
-    width: $sizeOfCeil;
+    height: $cellSize;
+    width: $cellSize;
 
-    margin-right: $gapOfCeil;
-    margin-bottom: $gapOfCeil;
+    margin-right: $cellGap;
+    margin-bottom: $cellGap;
 
     display: flex;
     justify-content: center;
@@ -44,9 +44,9 @@
     }
   }
 
-  @each $day, $order in $days {
+  @each $day, $order in $weekDays {
     &-#{$day} :first-child {
-      margin-left: $order * $sizeOfCeil + $gapOfCeil;
+      margin-left: $order * $cellSize + $cellGap;
     }
   }
 }
